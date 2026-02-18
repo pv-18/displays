@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - Heimatmuseum Lütgendortmund</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2a5298;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #1e3c72;
+            margin: 25px 0 15px 0;
+            font-size: 1.6rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .contact {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Impressum</h1>
+
+        <h2>Heimatmuseum Lütgendortmund 1988 e.V.</h2>
+        <p><strong>Anschrift:</strong><br>
+        Dellwiger Straße 130<br>
+        44388 Dortmund<br>
+        Deutschland</p>
+
+        <h2>Vertretungsberechtigt</h2>
+        <p>Herr Uwe Kolter (Vorsitzender)</p>
+
+        <h2>Kontakt</h2>
+        <p><strong>E-Mail:</strong> info@museum-luedo.de<br>
+        <strong>Telefon:</strong> +49 231 604186</p>
+
+        <h2>Register & Steuern</h2>
+        <p><strong>Registergericht:</strong> Amtsgericht Dortmund<br>
+        <strong>Registernummer:</strong> VR 3732<br>
+        <strong>Steuernummer:</strong><br>
+        314 / 5704 / 1817 FA Dortmund-West </p>
+
+        <div class="contact">
+            <h2>Haftungsausschluss</h2>
+            <p>Die Inhalte dieser Website werden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann keine Gewähr übernommen werden.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Heimatmuseum Lütgendortmund 1988 e.V. | <a href="index.html">Zurück zur Startseite</a></p>
+        </div>
+    </div>
+</body>
+</html>
