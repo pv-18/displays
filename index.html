@@ -1,1 +1,359 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vereins-Homepage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 60px 20px;
+        }
+
+        .button {
+            flex: 1 1 280px;
+            min-width: 280px;
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .button span {
+            position: relative;
+            z-index: 2;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+
+        .button:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .button-vereinsleben {
+            background-image: url('bilder/vereinsleben.jpg');
+        }
+
+        .button-luetgendortmund {
+            background-image: url('bilder/bauernhof.jpg');
+        }
+
+        .button-dortmund {
+            background-image: url('bilder/dortmund-historisch.jpg');
+        }
+
+        .button-schloss-dellwig {
+            background-image: url('bilder/schloss-dellwig.jpg');
+        }
+
+        .sub-menu {
+            display: none;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 20px;
+            margin-top: 15px;
+            max-width: 400px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+
+        .sub-menu h3 {
+            color: #2a5298;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 5px;
+        }
+
+        .sub-menu p {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .sub-menu ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            padding-left: 0;
+        }
+
+        .sub-menu li {
+            margin-bottom: 8px;
+        }
+
+        .sub-menu a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .sub-menu a:hover {
+            text-decoration: underline;
+        }
+
+        .sub-menu.active {
+            display: block;
+        }
+
+        .calendar-notice {
+            background: linear-gradient(135deg, #4a90e2, #50bfe6);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-top: 40px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border: 2px solid #2a5298;
+        }
+
+        .calendar-notice a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .calendar-notice a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1e3c72;
+            color: white;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .button {
+                height: 180px;
+                font-size: 1.3rem;
+            }
+            
+            .button-container {
+                padding: 40px 20px;
+            }
+            
+            .sub-menu {
+                max-width: 100%;
+                padding: 15px;
+            }
+            
+            .calendar-notice {
+                font-size: 1.1rem;
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="#vereinsleben" class="button button-vereinsleben" onclick="toggleSubmenu('vereinsleben')">
+                <span>Vereinsleben</span>
+            </a>
+            <a href="#lütgendortmund" class="button button-luetgendortmund" onclick="toggleSubmenu('lütgendortmund')">
+                <span>Lütgendortmund</span>
+            </a>
+            <a href="#dortmund" class="button button-dortmund" onclick="toggleSubmenu('dortmund')">
+                <span>Dortmund</span>
+            </a>
+            <a href="#schloss-dellwig" class="button button-schloss-dellwig" onclick="toggleSubmenu('schloss-dellwig')">
+                <span>Schloss Dellwig</span>
+            </a>
+        </div>
+
+        <div class="calendar-notice">
+            📅 <strong>Alle aktuellen Termine findest du im Terminkalender</strong><br>
+            <a href="https://kalender.example.de" target="_blank">➡️ Zum Terminkalender →</a>
+        </div>
+
+        <div id="vereinsleben" class="sub-menu">
+            <h3>✨ Vereinsleben</h3>
+            <p>Unser Verein ist mehr als nur eine Gruppe – wir sind eine Gemeinschaft, die gemeinsam lebt, arbeitet und feiert. Jeder ist willkommen!</p>
+            <h4>🍻 Bier brauen</h4>
+            <p>Seit 2010 veranstalten wir monatlich gemeinsam das Brauen von Bier. Wir verwenden nur regionale Zutaten und traditionelle Rezepte:</p>
+            <ul>
+                <li>Helles, Pils, Weizen – alle nach Handwerkskunst</li>
+                <li>Die Hefe wird selbst gezüchtet – ein echtes „Hausbier“</li>
+                <li>Alle Brautage sind öffentlich – probiere es selbst!</li>
+                <li>Das Bier wird bei Veranstaltungen verkauft – für einen guten Zweck</li>
+            </ul>
+            <p><strong>Termine:</strong> Erster Samstag im Monat, 14:00 Uhr im Vereinsraum.</p>
+            <h4>🍞 Brot backen</h4>
+            <p>Ein weiterer Kern unserer Gemeinschaft: das Backen von Brot. Wir legen Wert auf Nachhaltigkeit und Gesundheit:</p>
+            <ul>
+                <li>Verwendung von Vollkornmehl aus regionalen Mühlen</li>
+                <li>Keine Zusatzstoffe – nur Wasser, Mehl, Salz und Hefe</li>
+                <li>Backen in Holzofen – mit traditionellem Feuer</li>
+                <li>Die Brote werden an lokale Märkte verkauft</li>
+            </ul>
+            <p><strong>Termine:</strong> Erster Dienstag im Monat, 10:00 Uhr.</p>
+            <p><a href="https://kalender.example.de" target="_blank">Zum Terminkalender →</a></p>
+        </div>
+
+        <div id="lütgendortmund" class="sub-menu">
+            <h3>🌾 Lütgendortmund</h3>
+            <p>Lütgendortmund ist eine lebendige, traditionsreiche Gemeinde im Herzen des Ruhrgebiets. Wir pflegen die lokale Identität und die Zusammenarbeit.</p>
+            <h4>🚜 Bauernhöfe</h4>
+            <p>Die Region ist geprägt von kleinen und mittleren Bauernhöfen, die nachhaltig und ökologisch wirtschaften:</p>
+            <ul>
+                <li>Biologische Landwirtschaft mit Schaf- und Rinderzucht</li>
+                <li>Verkauf von Milch, Eiern, Gemüse und Obst direkt vor Ort</li>
+                <li>Offene Tage für Kinder und Familien – Lernen durch Erleben</li>
+                <li>Wir unterstützen die Bauern mit Workshops und Vermarktung</li>
+            </ul>
+            <p><strong>Interessiert?</strong> Besuche den „Tag der Bauernhöfe“ im September.</p>
+            <h4>🏛️ IGLVV – Interkommunaler Landwirtschaftsverein</h4>
+            <p>Der IGLVV ist ein Zusammenschluss von 12 Bauernhöfen in der Region. Wir fördern:</p>
+            <ul>
+                <li>Nachhaltige Landwirtschaft</li>
+                <li>Wissenstransfer zwischen Generationen</li>
+                <li>Vermarktung regionaler Produkte</li>
+                <li>Umweltschutz und Bodenpflege</li>
+            </ul>
+            <p>Der Verein veranstaltet jährlich eine große „Landwirtschaftswoche“ mit Führungen, Workshops und Markt.</p>
+            <p><a href="https://kalender.example.de" target="_blank">Zum Terminkalender →</a></p>
+        </div>
+
+        <div id="dortmund" class="sub-menu">
+            <h3>🏛️ Geschichte von Dortmund</h3>
+            <p>Dortmund ist eine der ältesten Städte Deutschlands – mit einer faszinierenden Vergangenheit und einer dynamischen Zukunft.</p>
+            <h4>📅 Gründung & Mittelalter</h4>
+            <p>Erstmals 882 n. Chr. erwähnt – als „Dortmund“ im Reichsgrundbuch des Kaisers. Die Stadt wurde zum Zentrum der **Stadtgründung im Mittelalter**.</p>
+            <ul>
+                <li>Stadtrecht 1220 verliehen</li>
+                <li>Stadtturm („Dortmunder Turm“) erbaut im 13. Jahrhundert</li>
+                <li>Wichtiges Zentrum der Hanse</li>
+            </ul>
+            <h4>🏭 Industriezeit (19. – 20. Jahrhundert)</h4>
+            <p>Dortmund wurde zum Herz der deutschen Stahl- und Kohleindustrie:</p>
+            <ul>
+                <li>1848: Erste Eisenbahnverbindung nach Berlin</li>
+                <li>1870: Gründung der „Rheinisch-Westfälischen Eisenbahn“</li>
+                <li>1900: Über 100.000 Einwohner – eine der größten Städte Deutschlands</li>
+                <li>Heute: Denkmäler der Industriekultur wie das „Zollverein“ (UNESCO-Weltkulturerbe)</li>
+            </ul>
+            <h4>🏙️ Heute – Eine moderne Stadt</h4>
+            <p>Dortmund ist heute eine moderne, kulturell vielfältige Stadt:</p>
+            <ul>
+                <li>Stadtkern mit historischen Gebäuden und modernen Architekturen</li>
+                <li>Weltklasse-Kultur: Oper, Theater, Museen</li>
+                <li>Grüne Oasen: Ruhrpark, Stadtwald, Flussufer</li>
+                <li>Internationale Sportstadt: Borussia Dortmund</li>
+            </ul>
+            <p>Unser Verein veranstaltet jährlich **Stadtführungen** durch die historischen Viertel.</p>
+            <p><a href="https://kalender.example.de" target="_blank">Zum Terminkalender →</a></p>
+        </div>
+
+        <div id="schloss-dellwig" class="sub-menu">
+            <h3>🏰 Schloss Dellwig</h3>
+            <p>Das Schloss Dellwig ist ein Juwel der Region – ein historisches Gebäude mit einer beeindruckenden Geschichte und einer wunderschönen Parkanlage.</p>
+            <h4>🏰 Geschichte des Schlosses</h4>
+            <p>Das Schloss wurde 1742 erbaut im Barockstil für die Adelsfamilie von Dellwig. Es war ein Zentrum der regionalen Macht und Kultur:</p>
+            <ul>
+                <li>18. Jahrhundert: Zentrum für Musik, Kunst und Landwirtschaft</li>
+                <li>19. Jahrhundert: Umgestaltung in neugotischen Stil</li>
+                <li>20. Jahrhundert: Nutzung als Schule und Kulturzentrum</li>
+                <li>Seit 2005: Denkmalgeschütztes Gebäude, öffentlich zugänglich</li>
+            </ul>
+            <h4>🌳 Park & Anlage</h4>
+            <p>Der Park ist eine Oase der Ruhe und Schönheit:</p>
+            <ul>
+                <li>12 Hektar große Anlage mit alten Bäumen, Rosenbeeten und Teichen</li>
+                <li>Historische Wege, Skulpturen und Brunnen</li>
+                <li>Im Frühling blühen 5.000 Rosen – das „Rosenfest“ ist ein Highlight</li>
+                <li>Im Sommer: Open-Air-Konzerte, Theateraufführungen</li>
+            </ul>
+            <h4>🎪 Veranstaltungen</h4>
+            <p>Das Schloss ist ein beliebter Veranstaltungsort:</p>
+            <ul>
+                <li>**Jahresfest im August** – mit Markt, Musik und Kinderprogramm</li>
+                <li>**Historische Führungen** – mit Kostümen und Live-Interpretationen</li>
+                <li>**Kunstausstellungen** – regionale Künstler präsentieren ihre Werke</li>
+                <li>**Hochzeiten & Feiern** – das Schloss ist ein beliebter Hochzeitsort</li>
+            </ul>
+            <p><a href="https://kalender.example.de" target="_blank">Zum Terminkalender →</a></p>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Verein. Alle Rechte vorbehalten. | <a href="#" style="color: #ffd700;">Impressum</a> | <a href="#" style="color: #ffd700;">Datenschutz</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleSubmenu(id) {
+            const menu = document.getElementById(id);
+            const allMenus = document.querySelectorAll('.sub-menu');
+            
+            allMenus.forEach(m => {
+                if (m.id !== id) {
+                    m.classList.remove('active');
+                }
+            });
+            
+            menu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(e) {
+            const menu = document.querySelector('.sub-menu.active');
+            if (menu && !menu.contains(e.target) && !e.target.closest('.button')) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
