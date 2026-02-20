@@ -41,21 +41,21 @@
     opacity: 0.6;
 }
 
-/* ✅ Hintergrundbilder direkt von GitHub Blob */
+/* ✅ Hintergrundbilder jetzt lokal im /bilder/ Ordner */
 .button-vereinsleben {
-    background-image: url('bilder/vereinsleben.jpg');
+    background-image: url('/bilder/vereinsleben.jpg');
 }
 
 .button-luetgendortmund {
-    background-image: url('bilder/bauernhof.jpg');
+    background-image: url('/bilder/bauernhof.jpg');
 }
 
 .button-dortmund {
-    background-image: url('bilder/dortmund-historisch.jpg');
+    background-image: url('/bilder/dortmund-historisch.jpg');
 }
 
 .button-schloss-dellwig {
-    background-image: url('bilder/schloss-dellwig.jpg');
+    background-image: url('/bilder/schloss-dellwig.jpg');
 }
 
 /* ✅ Kalender-Element auf 100% Breite angepasst */
