@@ -137,13 +137,13 @@
             <p><a href="https://www.museum-luedo.de/termine" target="_blank">Zum Terminkalender →</a></p>
         </div>
 
-        <!-- ✅ Touch-Buttons für Navigation -->
+        <!-- ✅ Vergrößerte Navigationsbuttons (100% Breite auf Mobil) -->
         <div class="navigation-buttons">
             <button id="prev-btn" class="nav-btn" onclick="navigate('prev')" disabled>⬅️ Zurück</button>
             <button id="next-btn" class="nav-btn" onclick="navigate('next')">Weiter ➡️</button>
         </div>
 
-        <!-- ✅ Kalender-Element jetzt am Ende der Seite -->
+        <!-- ✅ Kalender-Element jetzt auf 100% Breite angepasst -->
         <div class="calendar-notice">
             📅 <strong>Alle aktuellen Termine findest du im Terminkalender</strong><br>
             <a href="https://www.museum-luedo.de/termine" target="_blank">➡️ Zum Terminkalender →</a>
@@ -207,7 +207,6 @@
 
         // ✅ Initialisierung
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialisierung der Buttons
             updateNavButtons();
         });
     </script>
