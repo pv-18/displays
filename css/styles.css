@@ -41,6 +41,23 @@
     opacity: 0.6;
 }
 
+/* ✅ Hintergrundbilder direkt von GitHub Blob */
+.button-vereinsleben {
+    background-image: url('bilder/vereinsleben.jpg');
+}
+
+.button-luetgendortmund {
+    background-image: url('bilder/bauernhof.jpg');
+}
+
+.button-dortmund {
+    background-image: url('bilder/dortmund-historisch.jpg');
+}
+
+.button-schloss-dellwig {
+    background-image: url('bilder/schloss-dellwig.jpg');
+}
+
 /* ✅ Kalender-Element auf 100% Breite angepasst */
 .calendar-notice {
     background: #e74c3c; /* Rot */
