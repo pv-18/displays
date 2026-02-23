@@ -137,6 +137,12 @@
             <p><a href="https://www.museum-luedo.de/termine" target="_blank">Zum Terminkalender →</a></p>
         </div>
 
+        <!-- ✅ Touch-Buttons für Navigation -->
+        <div class="navigation-buttons">
+            <button id="prev-btn" class="nav-btn" onclick="navigate('prev')" disabled>⬅️ Zurück</button>
+            <button id="next-btn" class="nav-btn" onclick="navigate('next')">Weiter ➡️</button>
+        </div>
+
         <!-- ✅ Kalender-Element jetzt am Ende der Seite -->
         <div class="calendar-notice">
             📅 <strong>Alle aktuellen Termine findest du im Terminkalender</strong><br>
@@ -150,5 +156,60 @@
             </p>
         </footer>
     </div>
+
+    <script>
+        // ✅ Navigation zwischen Unterpunkten
+        const menuIds = [
+            'vereinsleben',
+            'lütgendortmund',
+            'dortmund',
+            'schloss-dellwig'
+        ];
+
+        let currentIndex = -1;
+
+        function toggleSubmenu(id) {
+            const menu = document.getElementById(id);
+            const allMenus = document.querySelectorAll('.sub-menu');
+            
+            allMenus.forEach(m => {
+                if (m.id !== id) {
+                    m.classList.remove('active');
+                }
+            });
+            
+            menu.classList.toggle('active');
+            
+            // Aktuellen Index setzen
+            currentIndex = menuIds.indexOf(id);
+            updateNavButtons();
+        }
+
+        function navigate(direction) {
+            if (direction === 'prev') {
+                currentIndex = Math.max(0, currentIndex - 1);
+            } else {
+                currentIndex = Math.min(menuIds.length - 1, currentIndex + 1);
+            }
+            
+            const id = menuIds[currentIndex];
+            document.getElementById(id).classList.add('active');
+            updateNavButtons();
+        }
+
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = currentIndex <= 0;
+            nextBtn.disabled = currentIndex >= menuIds.length - 1;
+        }
+
+        // ✅ Initialisierung
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialisierung der Buttons
+            updateNavButtons();
+        });
+    </script>
 </body>
 </html>
