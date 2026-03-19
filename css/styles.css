@@ -17,6 +17,12 @@ body {
     padding: 20px;
 }
 
+/* ✅ Ziel für „Zurück“-Button */
+#button-container {
+    height: 0;
+    overflow: hidden;
+}
+
 .button-container {
     display: flex;
     flex-wrap: wrap;
@@ -135,14 +141,20 @@ body {
     animation: slideUpFadeIn 0.4s ease-out forwards;
 }
 
-/* ✅ „Zurück“-Button (nur sichtbar, wenn .sub-menu aktiv ist) */
+/* ✅ „Zurück“-Button: nur sichtbar, wenn ein .sub-menu aktiv ist */
+/* ✅ Trick: Wenn irgendein Menü aktiv ist, wird der Button sichtbar */
+:is(#vereinsleben, #lütgendortmund, #dortmund, #schloss-dellwig):target ~ .back-button-container .back-btn,
+.sub-menu.active ~ .back-button-container .back-btn {
+    display: block;
+}
+
 .back-button-container {
     margin-top: 20px;
     text-align: center;
 }
 
 .back-btn {
-    display: inline-block;
+    display: none; /* Versteckt per Default */
     background: #ccc;
     color: #333;
     font-size: 1.2rem;
