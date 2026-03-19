@@ -135,6 +135,33 @@ body {
     animation: slideUpFadeIn 0.4s ease-out forwards;
 }
 
+/* ✅ „Zurück“-Button (nur sichtbar, wenn .sub-menu aktiv ist) */
+.back-button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-btn {
+    display: inline-block;
+    background: #ccc;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #aaa;
+}
+
+.back-btn:hover {
+    background: #bbb;
+    transform: translateY(-2px);
+}
+
 /* ✅ .sub-menu h3, p, ul, li, a */
 .sub-menu h3 {
     color: #2a5298;
@@ -305,5 +332,10 @@ footer {
         font-size: 1.2rem;
         padding: 12px 25px;
         min-width: 120px;
+    }
+
+    .back-btn {
+        font-size: 1rem;
+        padding: 8px 16px;
     }
 }
