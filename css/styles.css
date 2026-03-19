@@ -88,15 +88,16 @@ body {
 }
 
 .sub-menu {
-    display: none;
-    background: #fff;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    padding: 20px;
-    margin-top: 15px;
-    max-width: 400px;
-    text-align: left;
+    background: #fff;
     border: 1px solid #e0e0e0;
+    text-align: left;
 }
 
 .sub-menu h3 {
