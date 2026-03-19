@@ -7,9 +7,6 @@
     
     <!-- ✅ CSS-Datei im head -->
     <link rel="stylesheet" href="css/styles.css">
-    
-    <!-- ✅ JavaScript-Datei im head -->
-    <script src="js/script.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -28,7 +25,7 @@
             </a>
         </div>
 
-        <!-- ✅ Unterpunkte bleiben oben -->
+        <!-- ✅ Unterpunkte mit „Zurück“-Button -->
         <div id="vereinsleben" class="sub-menu">
             <h3>✨ Vereinsleben</h3>
             <p>Unser Verein ist mehr als nur eine Gruppe – wir sind eine Gemeinschaft, die gemeinsam lebt, arbeitet und feiert. Jeder ist willkommen!</p>
@@ -50,6 +47,11 @@
                 <li>Die Brote werden an lokale Märkte verkauft</li>
             </ul>
             <p><strong>Termine:</strong> Erster Dienstag im Monat, 10:00 Uhr.</p>
+            
+            <!-- ✅ „Zurück“-Button (nur sichtbar, wenn aktiv) -->
+            <div class="back-button-container">
+                <a href="#button-container" class="back-btn">⬅️ Zurück</a>
+            </div>
         </div>
 
         <div id="lütgendortmund" class="sub-menu">
@@ -73,6 +75,11 @@
                 <li>Umweltschutz und Bodenpflege</li>
             </ul>
             <p>Der Verein veranstaltet jährlich eine große „Landwirtschaftswoche“ mit Führungen, Workshops und Markt.</p>
+            
+            <!-- ✅ „Zurück“-Button -->
+            <div class="back-button-container">
+                <a href="#button-container" class="back-btn">⬅️ Zurück</a>
+            </div>
         </div>
 
         <div id="dortmund" class="sub-menu">
@@ -102,9 +109,101 @@
                 <li>Internationale Sportstadt: Borussia Dortmund</li>
             </ul>
             <p>Unser Verein veranstaltet jährlich **Stadtführungen** durch die historischen Viertel.</p>
+            
+            <!-- ✅ „Zurück“-Button -->
+            <div class="back-button-container">
+                <a href="#button-container" class="back-btn">⬅️ Zurück</a>
+            </div>
         </div>
 
         <div id="schloss-dellwig" class="sub-menu">
             <h3>🏰 Schloss Dellwig</h3>
             <p>Das Schloss Dellwig ist ein Juwel der Region – ein historisches Gebäude mit einer beeindruckenden Geschichte und einer wunderschönen Parkanlage.</p>
-            <h4>🏰 Geschichte des Schlo
+            <h4>🏰 Geschichte des Schlosses</h4>
+            <p>Das Schloss wurde 1742 erbaut im Barockstil für die Adelsfamilie von Dellwig. Es war ein Zentrum der regionalen Macht und Kultur:</p>
+            <ul>
+                <li>18. Jahrhundert: Zentrum für Musik, Kunst und Landwirtschaft</li>
+                <li>19. Jahrhundert: Umgestaltung in neugotischen Stil</li>
+                <li>20. Jahrhundert: Nutzung als Schule und Kulturzentrum</li>
+                <li>Seit 2005: Denkmalgeschütztes Gebäude, öffentlich zugänglich</li>
+            </ul>
+            <h4>🌳 Park & Anlage</h4>
+            <p>Der Park ist eine Oase der Ruhe und Schönheit:</p>
+            <ul>
+                <li>12 Hektar große Anlage mit alten Bäumen, Rosenbeeten und Teichen</li>
+                <li>Historische Wege, Skulpturen und Brunnen</li>
+                <li>Im Frühling blühen 5.000 Rosen – das „Rosenfest“ ist ein Highlight</li>
+                <li>Im Sommer: Open-Air-Konzerte, Theateraufführungen</li>
+            </ul>
+            <h4>🎪 Veranstaltungen</h4>
+            <p>Das Schloss ist ein beliebter Veranstaltungsort:</p>
+            <ul>
+                <li>**Jahresfest im August** – mit Markt, Musik und Kinderprogramm</li>
+                <li>**Historische Führungen** – mit Kostümen und Live-Interpretationen</li>
+                <li>**Kunstausstellungen** – regionale Künstler präsentieren ihre Werke</li>
+                <li>**Hochzeiten & Feiern** – das Schloss ist ein beliebter Hochzeitsort</li>
+            </ul>
+            
+            <!-- ✅ „Zurück“-Button -->
+            <div class="back-button-container">
+                <a href="#button-container" class="back-btn">⬅️ Zurück</a>
+            </div>
+        </div>
+
+        <!-- ✅ Touch-Buttons für Navigation -->
+        <div class="navigation-buttons">
+            <button id="prev-btn" class="nav-btn" onclick="navigate('prev')" disabled>⬅️ Zurück</button>
+            <button id="next-btn" class="nav-btn" onclick="navigate('next')">Weiter ➡️</button>
+        </div>
+
+        <!-- ✅ Kalender-Element jetzt am Ende der Seite -->
+        <div class="calendar-notice">
+            📅 <strong>Alle aktuellen Termine findest du im Terminkalender</strong><br>
+            <a href="https://www.museum-luedo.de/termine" target="_blank">➡️ Zum Terminkalender →</a>
+        </div>
+
+        <footer>
+            <p>&copy; Copyright - Heimatmuseum Lütgendortmund 1988 e.V. 2026 | 
+                <a href="impressum.html">Impressum</a> | 
+                <a href="datenschutz.html">Datenschutz</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // ✅ Navigation zwischen Unterpunkten (nur für die "Weiter"-Buttons)
+        const menuIds = [
+            'vereinsleben',
+            'lütgendortmund',
+            'dortmund',
+            'schloss-dellwig'
+        ];
+
+        let currentIndex = -1;
+
+        function navigate(direction) {
+            if (direction === 'prev') {
+                currentIndex = Math.max(0, currentIndex - 1);
+            } else {
+                currentIndex = Math.min(menuIds.length - 1, currentIndex + 1);
+            }
+            
+            const id = menuIds[currentIndex];
+            document.getElementById(id).classList.add('active');
+            updateNavButtons();
+        }
+
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = currentIndex <= 0;
+            nextBtn.disabled = currentIndex >= menuIds.length - 1;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateNavButtons();
+        });
+    </script>
+</body>
+</html>
