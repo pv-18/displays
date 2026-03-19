@@ -175,11 +175,32 @@ footer {
     margin-top: 40px;
 }
 
+/* ✅ Skaliere .sub-menu auf 100% Breite des Containers */
+.sub-menu {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
 @media (max-width: 768px) {
     .button {
         height: 180px;
         font-size: 1.3rem;
     }
+
+@media (max-width: 768px) {
+    .sub-menu {
+        padding: 15px;
+        font-size: 0.95rem;
+    }
+}
     
     .button-container {
         padding: 40px 20px;
