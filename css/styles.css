@@ -87,11 +87,13 @@ body {
     background-image: url('../bilder/schloss-dellwig.jpg');
 }
 
+/* ✅ Verstecke Buttons und Kalender, wenn ein .sub-menu aktiv ist */
 .sub-menu.active ~ .navigation-buttons,
 .sub-menu.active ~ .calendar-notice {
     display: none;
 }
 
+/* ✅ Skaliere .sub-menu auf 100% Breite */
 .sub-menu {
     width: 100%;
     max-width: 100%;
@@ -147,6 +149,7 @@ body {
     display: block;
 }
 
+/* ✅ Kalender-Element: kleiner, gleich hoch wie Footer */
 .calendar-notice {
     background: #e74c3c;
     color: white;
@@ -180,6 +183,7 @@ body {
     text-decoration: underline;
 }
 
+/* ✅ Footer: abgerundete Ecken, gleich hoch wie .calendar-notice */
 footer {
     text-align: center;
     padding: 20px;
@@ -196,6 +200,7 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+/* ✅ Touch-Buttons für Navigation */
 .navigation-buttons {
     display: flex;
     justify-content: center;
@@ -238,20 +243,12 @@ footer {
     opacity: 0.6;
 }
 
+/* ✅ Responsive für Mobile */
 @media (max-width: 768px) {
     .button {
         height: 180px;
         font-size: 1.3rem;
     }
-
-    (max-width: 768px) {
-    .calendar-notice,
-    footer {
-        height: 160px;
-        font-size: 1.1rem;
-        padding: 15px;
-    }
-}
 
     .button-container {
         padding: 40px 20px;
@@ -271,9 +268,11 @@ footer {
         font-size: 0.9rem;
     }
 
-    .calendar-notice {
+    .calendar-notice,
+    footer {
+        height: 160px;
         font-size: 1.1rem;
-        padding: 20px 15px;
+        padding: 15px;
     }
 
     .navigation-buttons {
@@ -285,11 +284,5 @@ footer {
         font-size: 1.2rem;
         padding: 12px 25px;
         min-width: 120px;
-    }
-
-    footer {
-        height: 160px;
-        font-size: 0.8rem;
-        padding: 15px;
     }
 }
