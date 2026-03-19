@@ -87,13 +87,11 @@ body {
     background-image: url('../bilder/schloss-dellwig.jpg');
 }
 
-/* ✅ Verstecke Buttons und Kalender, wenn ein .sub-menu aktiv ist */
 .sub-menu.active ~ .navigation-buttons,
 .sub-menu.active ~ .calendar-notice {
     display: none;
 }
 
-/* ✅ Skaliere .sub-menu auf 100% Breite */
 .sub-menu {
     width: 100%;
     max-width: 100%;
@@ -149,22 +147,26 @@ body {
     display: block;
 }
 
-/* ✅ Kalender-Element auf 100% Breite angepasst */
 .calendar-notice {
     background: #e74c3c;
     color: white;
     text-align: center;
-    padding: 25px 20px;
+    padding: 20px 20px;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     margin-top: 40px;
     margin-bottom: 20px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
     border: 2px solid #c0392b;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .calendar-notice a {
@@ -178,7 +180,6 @@ body {
     text-decoration: underline;
 }
 
-/* ✅ Footer: abgerundete Ecken und gleiche Höhe wie .sub-menu */
 footer {
     text-align: center;
     padding: 20px;
@@ -187,7 +188,7 @@ footer {
     font-size: 0.9rem;
     margin-top: 40px;
     border-radius: 15px;
-    height: 220px;
+    height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -195,7 +196,6 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* ✅ Touch-Buttons für Navigation */
 .navigation-buttons {
     display: flex;
     justify-content: center;
@@ -238,12 +238,20 @@ footer {
     opacity: 0.6;
 }
 
-/* ✅ Responsive für Mobile */
 @media (max-width: 768px) {
     .button {
         height: 180px;
         font-size: 1.3rem;
     }
+
+    (max-width: 768px) {
+    .calendar-notice,
+    footer {
+        height: 160px;
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+}
 
     .button-container {
         padding: 40px 20px;
@@ -280,23 +288,8 @@ footer {
     }
 
     footer {
-        height: 180px;
+        height: 160px;
         font-size: 0.8rem;
         padding: 15px;
     }
-}/* ✅ Runde Ecken und gleiche Höhe wie .sub-menu für Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #1e3c72;
-    color: white;
-    font-size: 0.9rem;
-    margin-top: 40px;
-    border-radius: 15px; /* Runde Ecken */
-    height: 220px; /* Gleich wie .button und .sub-menu */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
