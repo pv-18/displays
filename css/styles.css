@@ -167,6 +167,7 @@ body {
     text-decoration: underline;
 }
 
+/* ✅ Runde Ecken und gleiche Höhe wie .sub-menu für Footer */
 footer {
     text-align: center;
     padding: 20px;
@@ -174,6 +175,13 @@ footer {
     color: white;
     font-size: 0.9rem;
     margin-top: 40px;
+    border-radius: 15px; /* Runde Ecken */
+    height: 220px; /* Gleich wie .button und .sub-menu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* ✅ Skaliere .sub-menu auf 100% Breite des Containers */
@@ -197,9 +205,10 @@ footer {
     }
 
 @media (max-width: 768px) {
-    .sub-menu {
+    footer {
+        height: 180px;
+        font-size: 0.8rem;
         padding: 15px;
-        font-size: 0.95rem;
     }
 }
     
