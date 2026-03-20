@@ -3,67 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Displays</title>
-    
-    <!-- ✅ CSS-Datei im head -->
+    <title>Heimatmuseum Lütgendortmund – Übersicht</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="container">
-        <!-- ✅ Ziel für „Zurück“-Button -->
-        <div id="button-container"></div>
+        <h1 style="text-align: center; margin-bottom: 40px; font-size: 2.4rem; color: #2a5298;">
+            🏛️ Heimatmuseum Lütgendortmund
+        </h1>
 
         <div class="button-container">
-            <a href="#vereinsleben" class="button button-vereinsleben">
+            <a href="vereinsleben.html" class="button button-vereinsleben">
                 <span>Vereinsleben</span>
             </a>
-            <a href="#lütgendortmund" class="button button-luetgendortmund">
+            <a href="luetgendortmund.html" class="button button-luetgendortmund">
                 <span>Lütgendortmund</span>
             </a>
-            <a href="#dortmund" class="button button-dortmund">
+            <a href="dortmund.html" class="button button-dortmund">
                 <span>Dortmund</span>
             </a>
-            <a href="#schloss-dellwig" class="button button-schloss-dellwig">
+            <a href="schloss-dellwig.html" class="button button-schloss-dellwig">
                 <span>Schloss Dellwig</span>
             </a>
         </div>
 
-        <!-- ✅ Unterpunkte mit „Zurück“-Button -->
-        <div id="vereinsleben" class="sub-menu">
-            <h3>✨ Vereinsleben</h3>
-            <p>Unser Verein ist mehr als nur eine Gruppe – wir sind eine Gemeinschaft, die gemeinsam lebt, arbeitet und feiert. Jeder ist willkommen!</p>
-            <h4>🍻 Bier brauen</h4>
-            <p>Seit 2010 veranstalten wir monatlich gemeinsam das Brauen von Bier. Wir verwenden nur regionale Zutaten und traditionelle Rezepte:</p>
-            <ul>
-                <li>Helles, Pils, Weizen – alle nach Handwerkskunst</li>
-                <li>Die Hefe wird selbst gezüchtet – ein echtes „Hausbier“</li>
-                <li>Alle Brautage sind öffentlich – probiere es selbst!</li>
-                <li>Das Bier wird bei Veranstaltungen verkauft – für einen guten Zweck</li>
-            </ul>
-            <p><strong>Termine:</strong> Erster Samstag im Monat, 14:00 Uhr im Vereinsraum.</p>
-            <h4>🍞 Brot backen</h4>
-            <p>Ein weiterer Kern unserer Gemeinschaft: das Backen von Brot. Wir legen Wert auf Nachhaltigkeit und Gesundheit:</p>
-            <ul>
-                <li>Verwendung von Vollkornmehl aus regionalen Mühlen</li>
-                <li>Keine Zusatzstoffe – nur Wasser, Mehl, Salz und Hefe</li>
-                <li>Backen in Holzofen – mit traditionellem Feuer</li>
-                <li>Die Brote werden an lokale Märkte verkauft</li>
-            </ul>
-            <p><strong>Termine:</strong> Erster Dienstag im Monat, 10:00 Uhr.</p>
-            
-            <!-- ✅ „Zurück“-Button (nur sichtbar, wenn Menü aktiv ist) -->
-            <div class="back-button-container">
-                <a href="#button-container" class="back-btn">⬅️ Zurück</a>
-            </div>
+        <!-- ✅ Kalender-Element -->
+        <div class="calendar-notice">
+            📅 <strong>Alle aktuellen Termine findest du im Terminkalender</strong><br>
+            <a href="https://www.museum-luedo.de/termine" target="_blank">➡️ Zum Terminkalender →</a>
         </div>
 
-        <div id="lütgendortmund" class="sub-menu">
-            <h3>🌾 Lütgendortmund</h3>
-            <p>Lütgendortmund ist eine lebendige, traditionsreiche Gemeinde im Herzen des Ruhrgebiets. Wir pflegen die lokale Identität und die Zusammenarbeit.</p>
-            <h4>🚜 Bauernhöfe</h4>
-            <p>Die Region ist geprägt von kleinen und mittleren Bauernhöfen, die nachhaltig und ökologisch wirtschaften:</p>
-            <ul>
-                <li>Biologische Landwirtschaft mit Schaf- und Rinderzucht</li>
-                <li>Verkauf von Milch, Eiern, Gemüse und Obst direkt vor Ort</li>
-                <li>Offene Tage für Kinder und Familien – Lernen durch Erleben</li>
-                <li>Wir unterstützen die
+        <footer>
+            <p>&copy; Copyright - Heimatmuseum Lütgendortmund 1988 e.V. 2026 | 
+                <a href="impressum.html">Impressum</a> | 
+                <a href="datenschutz.html">Datenschutz</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // ✅ Kein JavaScript nötig – nur für Navigation (kann entfernt werden)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Optional: Aktiviere Animationen, wenn du willst
+        });
+    </script>
+</body>
+</html>
