@@ -17,7 +17,7 @@ body {
     padding: 20px;
 }
 
-/* ✅ Ziel für „Zurück“-Button */
+/* Ziel für „Zurück“-Button */
 #button-container {
     height: 0;
     overflow: hidden;
@@ -93,12 +93,12 @@ body {
     background-image: url('../bilder/schloss-dellwig.jpg');
 }
 
-/* ✅ Verstecke NUR die Navigation-Buttons, wenn ein .sub-menu aktiv ist */
+/* Verstecke NUR die Navigation-Buttons, wenn ein .sub-menu aktiv ist */
 .sub-menu.active ~ .navigation-buttons {
     display: none;
 }
 
-/* ✅ Animation: Fade-In + Slide-Up für .sub-menu */
+/* Animation: Fade-In + Slide-Up für .sub-menu */
 .sub-menu {
     width: 100%;
     max-width: 100%;
@@ -125,7 +125,7 @@ body {
     transform: translateY(0);
 }
 
-/* ✅ Animation: Fade-In + Slide-Up */
+/* Animation: Fade-In + Slide-Up */
 @keyframes slideUpFadeIn {
     from {
         opacity: 0;
@@ -141,8 +141,8 @@ body {
     animation: slideUpFadeIn 0.4s ease-out forwards;
 }
 
-/* ✅ „Zurück“-Button: nur sichtbar, wenn ein .sub-menu aktiv ist */
-/* ✅ Trick: Wenn irgendein Menü aktiv ist, wird der Button sichtbar */
+/* „Zurück“-Button: nur sichtbar, wenn ein .sub-menu aktiv ist */
+/* Wenn irgendein Menü aktiv ist, wird der Button sichtbar */
 :is(#vereinsleben, #lütgendortmund, #dortmund, #schloss-dellwig):target ~ .back-button-container .back-btn,
 .sub-menu.active ~ .back-button-container .back-btn {
     display: block;
@@ -174,7 +174,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* ✅ .sub-menu h3, p, ul, li, a */
+/* .sub-menu h3, p, ul, li, a */
 .sub-menu h3 {
     color: #2a5298;
     margin-bottom: 15px;
@@ -209,7 +209,7 @@ body {
     text-decoration: underline;
 }
 
-/* ✅ Kalender-Element: kleiner, gleich hoch wie Footer, immer sichtbar */
+/* Kalender-Element */
 .calendar-notice {
     background: #e74c3c;
     color: white;
@@ -243,7 +243,7 @@ body {
     text-decoration: underline;
 }
 
-/* ✅ Footer: abgerundete Ecken, gleich hoch wie .calendar-notice, immer sichtbar */
+/* Footer */
 footer {
     text-align: center;
     padding: 20px;
@@ -260,7 +260,7 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* ✅ Touch-Buttons für Navigation */
+/* Touch-Buttons */
 .navigation-buttons {
     display: flex;
     justify-content: center;
@@ -303,7 +303,7 @@ footer {
     opacity: 0.6;
 }
 
-/* ✅ Responsive für Mobile */
+/* Responsive für Mobile */
 @media (max-width: 768px) {
     .button {
         height: 180px;
