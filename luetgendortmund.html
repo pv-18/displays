@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lütgendortmund – Heimatmuseum Lütgendortmund</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="index.html" class="button button-luetgendortmund">
+                <span>Zurück zur Übersicht</span>
+            </a>
+        </div>
 
+        <div id="lütgendortmund" class="sub-menu">
+            <h3>🌾 Lütgendortmund</h3>
+            <p>Lütgendortmund ist eine lebendige, traditionsreiche Gemeinde im Herzen des Ruhrgebiets. Wir pflegen die lokale Identität und die Zusammenarbeit.</p>
+            <h4>🚜 Bauernhöfe</h4>
+            <p>Die Region ist geprägt von kleinen und mittleren Bauernhöfen, die nachhaltig und ökologisch wirtschaften:</p>
+            <ul>
+                <li>Biologische Landwirtschaft mit Schaf- und Rinderzucht</li>
+                <li>Verkauf von Milch, Eiern, Gemüse und Obst direkt vor Ort</li>
+                <li>Offene Tage für Kinder und Familien – Lernen durch Erleben</li>
+                <li>Wir unterstützen die Bauern mit Workshops und Vermarktung</li>
+            </ul>
+            <p><strong>Interessiert?</strong> Besuche den „Tag der Bauernhöfe“ im September.</p>
+            <h4>🏛️ IGLVV – Interkommunaler Landwirtschaftsverein</h4>
+            <p>Der IGLVV ist ein Zusammenschluss von 12 Bauernhöfen in der Region. Wir fördern:</p>
+            <ul>
+                <li>Nachhaltige Landwirtschaft</li>
+                <li>Wissenstransfer zwischen Generationen</li>
+                <li>Vermarktung regionaler Produkte</li>
+                <li>Umweltschutz und Bodenpflege</li>
+            </ul>
+            <p>Der Verein veranstaltet jährlich eine große „Landwirtschaftswoche“ mit Führungen, Workshops und Markt.</p>
+        </div>
+
+        <div class="navigation-buttons">
+            <button id="prev-btn" class="nav-btn" onclick="navigate('prev')" disabled>⬅️ Zurück</button>
+            <button id="next-btn" class="nav-btn" onclick="navigate('next')">Weiter ➡️</button>
+        </div>
+
+        <div class="calendar-notice">
+            📅 <strong>Alle aktuellen Termine findest du im Terminkalender</strong><br>
+            <a href="https://www.museum-luedo.de/termine" target="_blank">➡️ Zum Terminkalender →</a>
+        </div>
+
+        <footer>
+            <p>&copy; Copyright - Heimatmuseum Lütgendortmund 1988 e.V. 2026 | 
+                <a href="impressum.html">Impressum</a> | 
+                <a href="datenschutz.html">Datenschutz</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        const menuIds = [
+            'vereinsleben',
+            'lütgendortmund',
+            'dortmund',
+            'schloss-dellwig'
+        ];
+
+        let currentIndex = 1;
+
+        function navigate(direction) {
+            if (direction === 'prev') {
+                currentIndex = Math.max(0, currentIndex - 1);
+            } else {
+                currentIndex = Math.min(menuIds.length - 1, currentIndex + 1);
+            }
+            
+            const id = menuIds[currentIndex];
+            document.getElementById(id).classList.add('active');
+            updateNavButtons();
+        }
+
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = currentIndex <= 0;
+            nextBtn.disabled = currentIndex >= menuIds.length - 1;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateNavButtons();
+        });
+    </script>
+</body>
+</html>
