@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schloss Dellwig – Heimatmuseum Lütgendortmund</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="index.html" class="button button-schloss-dellwig">
+                <span>Zurück zur Übersicht</span>
+            </a>
+        </div>
 
+        <div id="schloss-dellwig" class="sub-menu">
+            <h3>🏰 Schloss Dellwig</h3>
+            <p>Das Schloss Dellwig ist ein Juwel der Region – ein historisches Gebäude mit einer beeindruckenden Geschichte und einer wunderschönen Parkanlage.</p>
+            <h4>🏰 Geschichte des Schlosses</h4>
+            <p>Das Schloss wurde 1742 erbaut im Barockstil für die Adelsfamilie von Dellwig. Es war ein Zentrum der regionalen Macht und Kultur:</p>
+            <ul>
+                <li>18. Jahrhundert: Zentrum für Musik, Kunst und Landwirtschaft</li>
+                <li>19. Jahrhundert: Umgestaltung in neugotischen Stil</li>
+                <li>20. Jahrhundert: Nutzung als Schule und Kulturzentrum</li>
+                <li>Seit 2005: Denkmalgeschütztes Gebäude, öffentlich zugänglich</li>
+            </ul>
+            <h4>🌳 Park & Anlage</h4>
+            <p>Der Park ist eine Oase der Ruhe und Schönheit:</p>
+            <ul>
+                <li>12 Hektar große Anlage mit alten Bäumen, Rosenbeeten und Teichen</li>
+                <li>Historische Wege, Skulpturen und Brunnen</li>
+                <li>Im Frühling blühen 5.000 Rosen – das „Rosenfest“ ist ein Highlight</li>
+                <li>Im Sommer: Open-Air-Konzerte, Theateraufführungen</li>
+            </ul>
+            <h4>🎪 Veranstaltungen</h4>
+            <p>Das Schloss ist ein beliebter Veranstaltungsort:</p>
+            <ul>
+                <li>**Jahresfest im August** – mit Markt, Musik und Kinderprogramm</li>
+                <li>**Historische Führungen** – mit Kostümen und Live-Interpretationen</li>
+                <li>**Kunstausstellungen** – regionale Künstler präsentieren ihre Werke</li>
+                <li>**Hochzeiten & Feiern** – das Schloss ist ein beliebter Hochzeitsort</li>
+            </ul>
+        </div>
+
+        <div class="navigation-buttons">
+            <button id="prev-btn" class="nav-btn" onclick="navigate('prev')" disabled>⬅️ Zurück</button>
+            <button id="next-btn" class="nav-btn" onclick="navigate('next')">Weiter ➡️</button>
+        </div>
+
+        <div class="calendar-notice">
+            📅 <strong>Alle aktuellen Termine findest du im Terminkalender</strong><br>
+            <a href="https://www.museum-luedo.de/termine" target="_blank">➡️ Zum Terminkalender →</a>
+        </div>
+
+        <footer>
+            <p>&copy; Copyright - Heimatmuseum Lütgendortmund 1988 e.V. 2026 | 
+                <a href="impressum.html">Impressum</a> | 
+                <a href="datenschutz.html">Datenschutz</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        const menuIds = [
+            'vereinsleben',
+            'lütgendortmund',
+            'dortmund',
+            'schloss-dellwig'
+        ];
+
+        let currentIndex = 3;
+
+        function navigate(direction) {
+            if (direction === 'prev') {
+                currentIndex = Math.max(0, currentIndex - 1);
+            } else {
+                currentIndex = Math.min(menuIds.length - 1, currentIndex + 1);
+            }
+            
+            const id = menuIds[currentIndex];
+            document.getElementById(id).classList.add('active');
+            updateNavButtons();
+        }
+
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = currentIndex <= 0;
+            nextBtn.disabled = currentIndex >= menuIds.length - 1;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateNavButtons();
+        });
+    </script>
+</body>
+</html>
