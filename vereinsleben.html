@@ -8,13 +8,14 @@
 </head>
 <body>
     <div class="container">
+        <!-- ✅ Nur ein „Zurück“-Button oben -->
         <div class="button-container">
             <a href="index.html" class="button button-vereinsleben">
                 <span>Zurück zur Übersicht</span>
             </a>
         </div>
 
-        <!-- ✅ .sub-menu ist jetzt aktiv -->
+        <!-- ✅ .sub-menu ist aktiv -->
         <div id="vereinsleben" class="sub-menu active">
             <h3>✨ Vereinsleben</h3>
             <p>Unser Verein ist mehr als nur eine Gruppe – wir sind eine Gemeinschaft, die gemeinsam lebt, arbeitet und feiert. Jeder ist willkommen!</p>
@@ -38,12 +39,6 @@
             <p><strong>Termine:</strong> Erster Dienstag im Monat, 10:00 Uhr.</p>
         </div>
 
-        <!-- ✅ Navigation-Buttons (nur sichtbar, wenn mehr als eine Seite existiert) -->
-        <div class="navigation-buttons">
-            <button id="prev-btn" class="nav-btn" onclick="navigate('prev')" disabled>⬅️ Zurück</button>
-            <button id="next-btn" class="nav-btn" onclick="navigate('next')">Weiter ➡️</button>
-        </div>
-
         <!-- ✅ Kalender-Element -->
         <div class="calendar-notice">
             📅 <strong>Alle aktuellen Termine findest du im Terminkalender</strong><br>
@@ -57,43 +52,5 @@
             </p>
         </footer>
     </div>
-
-    <script>
-        // ✅ Kein JavaScript nötig – nur für Navigation (kann entfernt werden)
-        // Aber: Wir brauchen es, um die Buttons zu steuern
-        const menuIds = [
-            'vereinsleben',
-            'lütgendortmund',
-            'dortmund',
-            'schloss-dellwig'
-        ];
-
-        let currentIndex = 0;
-
-        function navigate(direction) {
-            if (direction === 'prev') {
-                currentIndex = Math.max(0, currentIndex - 1);
-            } else {
-                currentIndex = Math.min(menuIds.length - 1, currentIndex + 1);
-            }
-            
-            const id = menuIds[currentIndex];
-            // ✅ Aktiviere nur die aktuelle Seite
-            document.getElementById(id).classList.add('active');
-            updateNavButtons();
-        }
-
-        function updateNavButtons() {
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            
-            prevBtn.disabled = currentIndex <= 0;
-            nextBtn.disabled = currentIndex >= menuIds.length - 1;
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            updateNavButtons();
-        });
-    </script>
 </body>
 </html>
