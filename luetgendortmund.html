@@ -14,7 +14,7 @@
             </a>
         </div>
 
-        <div id="lütgendortmund" class="sub-menu">
+        <div id="lütgendortmund" class="sub-menu active">
             <h3>🌾 Lütgendortmund</h3>
             <p>Lütgendortmund ist eine lebendige, traditionsreiche Gemeinde im Herzen des Ruhrgebiets. Wir pflegen die lokale Identität und die Zusammenarbeit.</p>
             <h4>🚜 Bauernhöfe</h4>
@@ -37,11 +37,6 @@
             <p>Der Verein veranstaltet jährlich eine große „Landwirtschaftswoche“ mit Führungen, Workshops und Markt.</p>
         </div>
 
-        <div class="navigation-buttons">
-            <button id="prev-btn" class="nav-btn" onclick="navigate('prev')" disabled>⬅️ Zurück</button>
-            <button id="next-btn" class="nav-btn" onclick="navigate('next')">Weiter ➡️</button>
-        </div>
-
         <div class="calendar-notice">
             📅 <strong>Alle aktuellen Termine findest du im Terminkalender</strong><br>
             <a href="https://www.museum-luedo.de/termine" target="_blank">➡️ Zum Terminkalender →</a>
@@ -54,40 +49,5 @@
             </p>
         </footer>
     </div>
-
-    <script>
-        const menuIds = [
-            'vereinsleben',
-            'lütgendortmund',
-            'dortmund',
-            'schloss-dellwig'
-        ];
-
-        let currentIndex = 1;
-
-        function navigate(direction) {
-            if (direction === 'prev') {
-                currentIndex = Math.max(0, currentIndex - 1);
-            } else {
-                currentIndex = Math.min(menuIds.length - 1, currentIndex + 1);
-            }
-            
-            const id = menuIds[currentIndex];
-            document.getElementById(id).classList.add('active');
-            updateNavButtons();
-        }
-
-        function updateNavButtons() {
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            
-            prevBtn.disabled = currentIndex <= 0;
-            nextBtn.disabled = currentIndex >= menuIds.length - 1;
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            updateNavButtons();
-        });
-    </script>
 </body>
 </html>
