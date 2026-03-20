@@ -14,7 +14,8 @@
             </a>
         </div>
 
-        <div id="vereinsleben" class="sub-menu">
+        <!-- ✅ .sub-menu ist jetzt aktiv -->
+        <div id="vereinsleben" class="sub-menu active">
             <h3>✨ Vereinsleben</h3>
             <p>Unser Verein ist mehr als nur eine Gruppe – wir sind eine Gemeinschaft, die gemeinsam lebt, arbeitet und feiert. Jeder ist willkommen!</p>
             <h4>🍻 Bier brauen</h4>
@@ -37,11 +38,13 @@
             <p><strong>Termine:</strong> Erster Dienstag im Monat, 10:00 Uhr.</p>
         </div>
 
+        <!-- ✅ Navigation-Buttons (nur sichtbar, wenn mehr als eine Seite existiert) -->
         <div class="navigation-buttons">
             <button id="prev-btn" class="nav-btn" onclick="navigate('prev')" disabled>⬅️ Zurück</button>
             <button id="next-btn" class="nav-btn" onclick="navigate('next')">Weiter ➡️</button>
         </div>
 
+        <!-- ✅ Kalender-Element -->
         <div class="calendar-notice">
             📅 <strong>Alle aktuellen Termine findest du im Terminkalender</strong><br>
             <a href="https://www.museum-luedo.de/termine" target="_blank">➡️ Zum Terminkalender →</a>
@@ -56,6 +59,8 @@
     </div>
 
     <script>
+        // ✅ Kein JavaScript nötig – nur für Navigation (kann entfernt werden)
+        // Aber: Wir brauchen es, um die Buttons zu steuern
         const menuIds = [
             'vereinsleben',
             'lütgendortmund',
@@ -73,6 +78,7 @@
             }
             
             const id = menuIds[currentIndex];
+            // ✅ Aktiviere nur die aktuelle Seite
             document.getElementById(id).classList.add('active');
             updateNavButtons();
         }
