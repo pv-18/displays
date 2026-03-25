@@ -77,19 +77,19 @@ body {
 }
 
 .button-vereinsleben {
-    background-image: url('../bilder/vereinsleben.jpg');
+    background-image: url('../content/pictures/vereinsleben.jpg');
 }
 
 .button-luetgendortmund {
-    background-image: url('../bilder/bauernhof.jpg');
+    background-image: url('../content/pictures/bauernhof.jpg');
 }
 
 .button-dortmund {
-    background-image: url('../bilder/dortmund-historisch.jpg');
+    background-image: url('../content/pictures/dortmund-historisch.jpg');
 }
 
 .button-schloss-dellwig {
-    background-image: url('../bilder/schloss-dellwig.jpg');
+    background-image: url('../content/pictures/schloss-dellwig.jpg');
 }
 
 /* Verstecke NUR die Navigation-Buttons, wenn ein .sub-menu aktiv ist */
