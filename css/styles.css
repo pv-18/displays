@@ -208,7 +208,7 @@ body {
     text-decoration: underline;
 }
 
-/* Footer: Mit Kalender-Inhalt und Farbe + Rahmen */
+/* Footer: Mit neuem Aufbau */
 footer {
     text-align: center;
     padding: 25px 20px;
@@ -218,14 +218,15 @@ footer {
     font-weight: 600;
     margin-top: 40px;
     border-radius: 15px;
-    height: 120px;
+    height: 140px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     line-height: 1.6;
-    border: 2px solid #c0392b; /* ✅ Rahmen hinzugefügt */
+    border: 2px solid #c0392b;
 }
 
 footer a {
