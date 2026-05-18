@@ -88,7 +88,23 @@ body {
     background-image: url('../content/pictures/dortmund-historisch.jpg');
 }
 
-.button-schloss-dellwig {
+.button-strassennamen {
+    background-image: url('../content/pictures/Luetgendortmnund-karte.jpg');
+}
+
+.button-juedisches-leben {
+    background-image: url('../content/pictures/schloss-dellwig.jpg');
+}
+
+.button-unternehmen {
+    background-image: url('../content/pictures/schloss-dellwig.jpg');
+}
+
+.button-vereine {
+    background-image: url('../content/pictures/schloss-dellwig.jpg');
+}
+
+.button-kaiserzeit {
     background-image: url('../content/pictures/schloss-dellwig.jpg');
 }
 
