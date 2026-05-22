@@ -112,6 +112,11 @@ body {
     background-image: url('../content/pictures/schloss-dellwig.jpg');
 }
 
+.button-aiv {
+    background-image: url('../content/pictures/logo-aiv.jpg');
+}
+
+
 /* Verstecke NUR die Navigation-Buttons, wenn ein .sub-menu aktiv ist */
 .sub-menu.active ~ .navigation-buttons {
     display: none;
