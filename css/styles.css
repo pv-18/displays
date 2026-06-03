@@ -80,6 +80,10 @@ body {
     background-image: url('../content/pictures/buttons/logo-museum-farbig-negativ.jpg');
 }
 
+.button-vereinsaktivitaeten {
+    background-image: url('../content/pictures/buttons/vereinsleben.jpg');
+}
+
 .button-luetgendortmund {
     background-image: url('../content/pictures/buttons/luetgendortmund.jpg');
 }
