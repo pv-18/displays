@@ -5,6 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lütgendortmund – Heimatmuseum Lütgendortmund</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Slider Styles */
+        .slider-container {
+            max-width: 800px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 400px;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        .slider-controls button {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-controls button:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: white;
+        }
+
+        @media (max-width: 600px) {
+            .slider-container {
+                height: 300px;
+            }
+            
+            .slider-controls button {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -18,8 +107,119 @@
             <a href="pacific.html" class="button button-aiv">
                 <span>Pacific</span>
             </a>
-           
+        </div>
+
+        <!-- Slider Bereich -->
+        <div class="slider-container">
+            <div class="slider" id="slider">
+                <!-- Bilder werden dynamisch geladen -->
+            </div>
+
+            <div class="slider-controls">
+                <button id="prevBtn">&lt;</button>
+                <button id="nextBtn">&gt;</button>
+            </div>
+
+            <div class="slider-dots" id="dots"></div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pfad zu den Bildern im Ordner /content/documents/poster
+            const imageFolder = '/content/documents/poster/';
+            const imageFiles = [
+                'Eine-Familie-schrieb-Industrie-Geschichte.pdf',
+                'Eine-Familie-schrieb-Industrie-Geschichte-2.pdf',
+                'poster-muster.jpg',
+            ];
+
+            const slider = document.getElementById('slider');
+            const dotsContainer = document.getElementById('dots');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            let currentSlide = 0;
+            const totalSlides = imageFiles.length;
+
+            // Bilder und Dots dynamisch erstellen
+            imageFiles.forEach((filename, index) => {
+                // Slide hinzufügen
+                const slide = document.createElement('div');
+                slide.className = 'slide';
+                const img = document.createElement('img');
+                img.src = imageFolder + filename;
+                img.alt = `Poster ${index + 1}`;
+                slide.appendChild(img);
+                slider.appendChild(slide);
+
+                // Dot hinzufügen
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                dot.setAttribute('data-index', index);
+                if (index === 0) dot.classList.add('active');
+                dotsContainer.appendChild(dot);
+            });
+
+            // Funktion zum Wechseln des Slides
+            function goToSlide(index) {
+                if (index < 0) {
+                    index = totalSlides - 1;
+                } else if (index >= totalSlides) {
+                    index = 0;
+                }
+
+                currentSlide = index;
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+                // Aktualisiere die Dot-Indikatoren
+                document.querySelectorAll('.dot').forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            // Event-Listener für Pfeil-Buttons
+            prevBtn.addEventListener('click', () => {
+                goToSlide(currentSlide - 1);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                goToSlide(currentSlide + 1);
+            });
+
+            // Event-Listener für Dot-Indikatoren
+            document.querySelectorAll('.dot').forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const index = parseInt(dot.getAttribute('data-index'));
+                    goToSlide(index);
+                });
+            });
+
+            // Touch-Event für Wischen (für Mobilgeräte)
+            let startX = 0;
+            let endX = 0;
+
+            slider.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+
+            slider.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+
+                if (diff > 50) {
+                    // Wischen nach links → nächstes Bild
+                    goToSlide(currentSlide + 1);
+                } else if (diff < -50) {
+                    // Wischen nach rechts → vorheriges Bild
+                    goToSlide(currentSlide - 1);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
