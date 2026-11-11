@@ -120,6 +120,9 @@ body {
     background-image: url('../content/pictures/buttons/logo-aiv.jpg');
 }
 
+.button-pacific {
+    background-image: url('../content/pictures/buttons/pacific.jpg');
+}
 
 /* Verstecke NUR die Navigation-Buttons, wenn ein .sub-menu aktiv ist */
 .sub-menu.active ~ .navigation-buttons {
